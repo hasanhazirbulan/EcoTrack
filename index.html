@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoTrack Onboarding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;700;800&family=Manrope:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3FB984",
+              "primary-light": "#81E6A8",
+              secondary: "#81E6A8",
+              "background-light": "#F6FFF8",
+              "background-dark": "#11211a",
+              card: "#FFFFFF",
+              "card-dark": "#1E2D25",
+              "text-primary": "#1E1E1E",
+              "text-primary-dark": "#FFFFFF",
+              "text-secondary": "#5F5F5F",
+              "text-secondary-dark": "#a0a0a0",
+              accent: "#FFD166",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              "display-login": ["Plus Jakarta Sans", "sans-serif"],
+              "display-profile": ["Manrope", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "1.5rem",
+              xl: "2rem",
+              "2xl": "2rem",
+              "3xl": "2.5rem",
+            },
+            boxShadow: {
+              soft: "0 10px 25px -5px rgba(63, 185, 132, 0.1), 0 8px 10px -6px rgba(63, 185, 132, 0.1)",
+              "inner-soft": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+      .material-symbols-outlined.fill {
+        font-variation-settings: 'FILL' 1;
+      }
+      @keyframes subtle-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .animate-subtle-float {
+        animation: subtle-float 6s ease-in-out infinite;
+      }
+      @keyframes gradient-bg {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .gradient-background {
+        background: linear-gradient(-45deg, #f6fff8, #e1f5ec, #f6fff8);
+        background-size: 400% 400%;
+        animation: gradient-bg 15s ease infinite;
+      }
+      .gradient-blur {
+        filter: blur(80px);
+        opacity: 0.3;
+      }
+       .curved-nav {
+            width: 100%;
+            height: 72px;
+            background-color: white;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .dark .curved-nav {
+            background-color: #1E2D25;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #5F5F5F;
+            font-size: 12px;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease-in-out;
+        }
+        .dark .nav-item {
+            color: #a0a0a0;
+        }
+        
+        .nav-item:hover {
+            color: #3FB984;
+            transform: translateY(-2px);
+        }
+
+        .nav-item.active {
+            color: #3FB984;
+            transform: scale(1.1) translateY(-4px);
+        }
+        .dark .nav-item.active {
+            color: #3FB984;
+        }
+
+        .add-button {
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 56px;
+            border-radius: 9999px;
+            background-image: linear-gradient(45deg, #3FB984, #81E6A8);
+            box-shadow: 0 4px 15px rgba(63, 185, 132, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            cursor: pointer;
+        }
+        @keyframes flicker {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .flame-animation {
+            animation: flicker 1.5s infinite;
+        }
+        
+        @keyframes page-fade-in {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-page-fade-in {
+          animation: page-fade-in 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        @keyframes content-slide-in {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes content-slide-out {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(-20px); }
+        }
+        .animate-content-slide {
+            animation-duration: 0.3s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes spinner {
+          to { transform: rotate(360deg); }
+        }
+        .spinner {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          vertical-align: text-bottom;
+          border: 2px solid currentColor;
+          border-right-color: transparent;
+          border-radius: 50%;
+          animation: spinner .75s linear infinite;
+        }
+        
+        @keyframes item-exit {
+          to {
+            opacity: 0;
+            transform: scale(0.9) translateX(-20px);
+          }
+        }
+        .animate-item-exit {
+          animation: item-exit 0.3s ease-in-out forwards;
+        }
+        
+        @keyframes modal-view-slide-in {
+          from { opacity: 0; transform: translateX(30px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes modal-view-slide-out {
+          from { opacity: 1; transform: translateX(0); }
+          to { opacity: 0; transform: translateX(-30px); }
+        }
+        .animate-modal-view {
+          animation-duration: 0.3s;
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          animation-fill-mode: forwards;
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-background-light font-display">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
